@@ -1,0 +1,42 @@
+import java.io.*;
+import java.net.*;
+
+public class Client {
+//定义服务器主机名
+	private static String serverAddress="localhost";
+	//定义服务器服务端口号
+	private static int port = 8080;
+	public static void main(String[] args) throws IOException{
+		Socket socket=new Socket(serverAddress,port);
+	try{
+		System.out.println("socket="+socket);
+		BufferedReader reader=
+				new BufferedReader(
+				new InputStreamReader(
+						socket.getInputStream()));
+		PrintWriter writer=
+				new PrintWriter(
+				new BufferedWriter(
+						new OutputStreamWriter(
+								socket.getOutputStream())),true);
+		BufferedReader localReader= new BufferedReader(new InputStreamReader(System.in));
+		String msg=null;
+		 while((msg=localReader.readLine())!=null){
+			writer.println(msg);
+			System.out.println("from server:"+reader.readLine());
+			if(msg.equals("end"))
+				break;
+		}
+				
+	}catch(IOException ex){
+		ex.printStackTrace();
+	}finally{
+		System.out.println("关闭链接");
+		try{
+			socket.close();
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	}
+}

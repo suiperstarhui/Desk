@@ -1,8 +1,11 @@
 import java.io.*;
 import java.net.*;
+
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.JOptionPane;
 
 public class SimpleChatClient {
@@ -14,13 +17,12 @@ public class SimpleChatClient {
 	static String clientName;
 
 	public static void main(String[] args) {
-		SimpleChatClient client = new SimpleChatClient();
-		clientName = JOptionPane.showInputDialog("Please input the client name :");
-		client.go();
+		 new SimpleChatClient().go();
 	}
 
 	public void go() {
 		// build GUI
+		clientName = JOptionPane.showInputDialog("Please input the client name :");
 		JFrame frame = new JFrame(clientName + "'s Chat Client");
 		JPanel mainPanel = new JPanel();
 		incoming = new JTextArea(15,20);  
@@ -68,7 +70,7 @@ public class SimpleChatClient {
 	public class SendButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent ev) {
 			try {
-				writer.println(clientName+" says:\n"+outgoing.getText());
+				writer.println(clientName+" says:"+outgoing.getText());
 				writer.flush();
 			} catch(Exception ex) {
 				ex.printStackTrace();
@@ -88,5 +90,11 @@ public class SimpleChatClient {
 				} // close while
 			} catch(Exception ex) {ex.printStackTrace();}
 		} // close run
-	} // close inner class    
+	} // close inner class   
+	/*public static void main(String[] args) {
+		 new SimpleChatClient();
+		clientName = JOptionPane.showInputDialog("Please input the client name :");
+		client.go();
+	}*/
+
 }

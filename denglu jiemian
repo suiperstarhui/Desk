@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 import java.awt.*;   //导入必要的包
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class denglu extends JFrame{
     JTextField jTextField ;//定义文本框组件
@@ -13,6 +15,7 @@ public class denglu extends JFrame{
         jPasswordField = new JPasswordField(13);
         jLabel1 = new JLabel("用户名");
         jLabel2 = new JLabel("密码");
+        
         jb1 = new JButton("确认");
         jb2 = new JButton("取消");
         jp1 = new JPanel();
@@ -41,9 +44,21 @@ public class denglu extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setTitle("登陆");
+      
+       
+		jb1.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				new Jpanel();
+				
+			}
+			
+		});
          
     }
-    public static void main(String[] args){
-        new denglu();
-    }
+    //public static void main(String[] args){
+    //    new denglu();
+    //}
 }

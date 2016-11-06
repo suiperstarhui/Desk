@@ -1,0 +1,51 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Student extends JFrame {
+	
+	JButton jb1 = new JButton("聊天");
+	JButton jb2 = new JButton("传输文件");
+
+	JFrame frame;
+	
+	public Student() {
+		frame = new JFrame("学生界面");
+		
+		Container cp = frame.getContentPane();
+		
+	    cp.add(jb1);
+	    
+	    cp.add(jb2);
+	    cp.setLayout(new FlowLayout());
+	   // cp.setLayout(new GridLayout(1, 2));
+	 
+		frame.setSize(500, 100);
+		frame.setVisible(true);
+		
+		jb1.addMouseListener(new MouseAdapter() {
+        
+			public void mouseClicked(MouseEvent e) {
+				
+				new SimpleChatClient().go();
+				
+			
+		jb2.addMouseListener(new MouseAdapter() {
+       public void mouseClicked(MouseEvent e) {
+				
+				new ServerTest().start();
+			
+}
+			
+		});
+		}
+			
+		});
+	}
+
+	public static void main(String[] args) {
+		 new Student();
+		 new Server().run();
+	}
+}

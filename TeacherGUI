@@ -1,0 +1,109 @@
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Jpanel extends JFrame {
+	
+	
+	private static String path = "E:/images/";
+	private static JTextArea jt02 = new JTextArea(30, 38);
+	
+	
+	
+	public static JTextArea getJt02() {
+		return jt02;
+	}
+
+	JButton jb1 = new JButton(new ImageIcon(path + "桌面监控.png"));
+	JButton jb2 = new JButton(new ImageIcon(path + "聊天.png"));
+	JButton jb3 = new JButton(new ImageIcon(path + "传输文件.png"));
+	// JButton jb4=new JButton(new ImageIcon(path + "进程.png"));
+	// JButton jb5=new JButton(new ImageIcon(path + "客户端广播.png"));
+	// JButton jb6=new JButton(new ImageIcon(path + "浏览.jpg"));
+	// JButton jb7=new JButton(new ImageIcon(path + "强制开关机.png"));
+	// JButton jb8=new JButton(new ImageIcon(path + "浏览.png"));
+	// JButton jb9=new JButton(new ImageIcon(path + "视频录像.png"));
+
+	JFrame frame;
+	JPanel panel1;
+	JPanel panel2;
+	// JPanel panel3;
+	JPanel panel4;
+	JPanel panel5;
+	JPanel panel6;
+
+	public Jpanel() {
+		frame = new JFrame("远程桌面监控系统");
+		panel1 = new JPanel();
+		panel2 = new JPanel();
+		// panel3=new JPanel();
+		panel4 = new JPanel();
+		panel5 = new JPanel();
+
+		panel2.add(new JTextArea(30, 70));
+		panel4.add(jt02);
+		panel5.add(new JTextArea(10, 120));
+
+		panel1.add(jb1);
+		panel1.add(jb2);
+		panel1.add(jb3);
+		// 工具提示
+		jb1.setToolTipText("桌面监控");
+		jb2.setToolTipText("聊天");
+		jb3.setToolTipText("传输文件");
+
+		panel2.setBorder(new TitledBorder("用户列表"));
+		panel4.setBorder(new TitledBorder("信息管理"));
+		panel5.setBorder(new TitledBorder("用户记录"));
+
+		Container cp = frame.getContentPane();
+		cp.add(panel1, BorderLayout.NORTH);
+		cp.add(panel2, BorderLayout.WEST);
+		// cp.add(panel3,BorderLayout.EAST);
+		cp.add(panel4, BorderLayout.EAST);
+		cp.add(panel5, BorderLayout.SOUTH);
+
+		panel1.setLayout(new GridLayout(1, 3));
+		// panel2.setLayout(new GridLayout());
+		// panel3.setLayout(new GridLayout(3,1));
+		// panel4.setLayout(new GridLayout());
+		// panel5.setLayout(new GridLayout());
+		
+		frame.setSize(1250, 800);
+		frame.setVisible(true);
+		
+		jb1.addMouseListener(new MouseAdapter() {
+        
+			public void mouseClicked(MouseEvent e) {
+				
+				new SimpleChatClient().go();
+				
+			
+		jb2.addMouseListener(new MouseAdapter() {
+       public void mouseClicked(MouseEvent e) {
+				
+				new Client();
+				
+				jb3.addMouseListener(new MouseAdapter() {
+				       public void mouseClicked(MouseEvent e) {
+								
+								new ClientTest().getMessage();
+				}
+							
+						});		
+				
+				
+}
+			
+		});
+		}
+			
+		});
+	}
+
+//	public static void main(String[] args) {
+//		Jpanel a = new Jpanel();
+
+}

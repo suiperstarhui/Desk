@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class Student extends JFrame {
 	
 	JButton jb1 = new JButton("聊天");
-	JButton jb2 = new JButton("传输文件");
+	JButton jb2 = new JButton("接收文件");
 
 	JFrame frame;
 	
@@ -19,10 +19,11 @@ public class Student extends JFrame {
 	    
 	    cp.add(jb2);
 	    cp.setLayout(new FlowLayout());
-	   // cp.setLayout(new GridLayout(1, 2));
+	   //cp.setLayout(new GridLayout());
 	 
 		frame.setSize(500, 100);
 		frame.setVisible(true);
+		
 		
 		jb1.addMouseListener(new MouseAdapter() {
         
@@ -34,7 +35,7 @@ public class Student extends JFrame {
 		jb2.addMouseListener(new MouseAdapter() {
        public void mouseClicked(MouseEvent e) {
 				
-				new ServerTest().start();
+    	   new ClientTest().getMessage();
 			
 }
 			

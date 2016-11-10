@@ -6,8 +6,7 @@ public class SimpleChatServer {
 	ArrayList<PrintWriter> clientOutputStreams;
 
 	public static void main(String[] args) {
-		new denglu();
-		//new Jpanel();
+		new Jpanel();
 		new SimpleChatServer().go();
 	}
 
@@ -57,7 +56,6 @@ public class SimpleChatServer {
 			}
 		}
 
-		@Override
 		public void run() {
 			String message;
 			try {
